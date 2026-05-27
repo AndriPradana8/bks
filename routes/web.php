@@ -7,6 +7,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/ui', function () {
+    return view('ui');
+});
+
 Route::get('/dashboard', function () {
     $user = auth()->user();
     if ($user->role === 'superadmin') return redirect()->route('superadmin.dashboard');
