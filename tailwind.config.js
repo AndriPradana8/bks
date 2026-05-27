@@ -8,14 +8,23 @@ export default {
         './resources/**/*.blade.php',
         './resources/**/*.js',
         './resources/**/*.vue',
+        './node_modules/flowbite/**/*.js'
     ],
     theme: {
         extend: {
+            colors: {
+                primary: {
+                    DEFAULT: '#1e5bce',
+                    light: '#e4e9f2',
+                }
+            },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
     },
-    plugins: [],
+    plugins: [
+        require('flowbite/plugin')
+    ],
 }
 

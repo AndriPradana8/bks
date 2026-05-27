@@ -1,3 +1,7 @@
+{{--
+    Sidebar Component for Superadmin
+--}}
+
 <aside :class="sidebarOpen ? 'w-64' : 'w-20'"
        class="relative bg-white border-r border-slate-200 flex flex-col hidden md:flex z-20 transition-all duration-300"
        style="overflow: visible;">
@@ -10,7 +14,7 @@
                 <i class="fa-solid fa-shield-halved text-lg"></i>
             </div>
             <div x-show="sidebarOpen" class="ml-3 overflow-hidden whitespace-nowrap" x-transition.opacity.duration.300ms>
-                <h1 class="text-[#1e3a8a] font-bold text-base leading-tight">Admin Panel</h1>
+                <h1 class="text-[#1e3a8a] font-bold text-base leading-tight">Super Admin</h1>
                 <p class="text-slate-400 text-xs">Bersama Kita Sukses</p>
             </div>
         </div>
@@ -30,8 +34,8 @@
         </div>
 
         <div class="relative group/dash">
-            <a href="{{ route('admin.dashboard') }}"
-               class="flex items-center py-2.5 rounded-lg font-medium text-sm transition-all duration-300 {{ request()->routeIs('admin.dashboard') ? 'bg-primary-light text-primary' : 'text-slate-500 hover:bg-slate-100' }}"
+            <a href="{{ route('superadmin.dashboard') }}"
+               class="flex items-center py-2.5 rounded-lg font-medium text-sm transition-all duration-300 {{ request()->routeIs('superadmin.dashboard') ? 'bg-primary-light text-primary' : 'text-slate-500 hover:bg-slate-100' }}"
                :class="sidebarOpen ? 'px-3' : 'justify-center px-0'">
                 <i class="fa-solid fa-table-cells-large text-base w-5 text-center flex-shrink-0" :class="sidebarOpen ? 'mr-3' : 'mr-0'"></i>
                 <span x-show="sidebarOpen" class="whitespace-nowrap" x-transition.opacity.duration.300ms>Dashboard</span>
@@ -45,8 +49,8 @@
         </div>
 
         <div class="relative group/nasabah">
-            <a href="{{ route('admin.nasabah') }}"
-               class="flex items-center py-2.5 rounded-lg font-medium text-sm transition-all duration-300 {{ request()->routeIs('admin.nasabah*') ? 'bg-primary-light text-primary' : 'text-slate-500 hover:bg-slate-100' }}"
+            <a href="{{ route('superadmin.nasabah') }}"
+               class="flex items-center py-2.5 rounded-lg font-medium text-sm transition-all duration-300 {{ request()->routeIs('superadmin.nasabah*') ? 'bg-primary-light text-primary' : 'text-slate-500 hover:bg-slate-100' }}"
                :class="sidebarOpen ? 'px-3' : 'justify-center px-0'">
                 <i class="fa-solid fa-users text-base w-5 text-center flex-shrink-0" :class="sidebarOpen ? 'mr-3' : 'mr-0'"></i>
                 <span x-show="sidebarOpen" class="whitespace-nowrap" x-transition.opacity.duration.300ms>Data Nasabah</span>
@@ -59,17 +63,32 @@
             </div>
         </div>
 
-        <div class="relative group/tabungan">
-            <a href="{{ route('admin.tabungan') }}"
-               class="flex items-center py-2.5 rounded-lg font-medium text-sm transition-all duration-300 {{ request()->routeIs('admin.tabungan*') ? 'bg-primary-light text-primary' : 'text-slate-500 hover:bg-slate-100' }}"
-               :class="sidebarOpen ? 'px-3' : 'justify-center px-0'">
-                <i class="fa-solid fa-wallet text-base w-5 text-center flex-shrink-0" :class="sidebarOpen ? 'mr-3' : 'mr-0'"></i>
-                <span x-show="sidebarOpen" class="whitespace-nowrap" x-transition.opacity.duration.300ms>Tabungan</span>
+        <div x-show="sidebarOpen" class="px-3 pt-4 pb-2" x-transition.opacity.duration.300ms>
+            <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Manajemen</p>
+        </div>
+
+        <div class="relative group/admins">
+            <a href="#" class="flex items-center py-2.5 rounded-lg font-medium text-sm transition-all duration-300 {{ request()->routeIs('superadmin.admins*') ? 'bg-primary-light text-primary' : 'text-slate-500 hover:bg-slate-100' }}" :class="sidebarOpen ? 'px-3' : 'justify-center px-0'">
+                <i class="fa-solid fa-user-tie text-base w-5 text-center flex-shrink-0" :class="sidebarOpen ? 'mr-3' : 'mr-0'"></i>
+                <span x-show="sidebarOpen" class="whitespace-nowrap" x-transition.opacity.duration.300ms>Kelola Admin</span>
             </a>
-            <div x-show="!sidebarOpen" class="absolute left-full top-1/2 -translate-y-1/2 ml-3 z-50 pointer-events-none opacity-0 group-hover/tabungan:opacity-100 transition-opacity duration-200">
+            <div x-show="!sidebarOpen" class="absolute left-full top-1/2 -translate-y-1/2 ml-3 z-50 pointer-events-none opacity-0 group-hover/admins:opacity-100 transition-opacity duration-200">
                 <div class="relative bg-slate-800 text-white text-xs font-medium px-3 py-1.5 rounded-md whitespace-nowrap">
                     <div class="absolute -left-1 top-1/2 -translate-y-1/2 w-2 h-2 bg-slate-800 rotate-45"></div>
-                    Tabungan
+                    Kelola Admin
+                </div>
+            </div>
+        </div>
+
+        <div class="relative group/laporan">
+            <a href="#" class="flex items-center py-2.5 rounded-lg font-medium text-sm transition-all duration-300 {{ request()->routeIs('superadmin.laporan*') ? 'bg-primary-light text-primary' : 'text-slate-500 hover:bg-slate-100' }}" :class="sidebarOpen ? 'px-3' : 'justify-center px-0'">
+                <i class="fa-solid fa-chart-bar text-base w-5 text-center flex-shrink-0" :class="sidebarOpen ? 'mr-3' : 'mr-0'"></i>
+                <span x-show="sidebarOpen" class="whitespace-nowrap" x-transition.opacity.duration.300ms>Laporan</span>
+            </a>
+            <div x-show="!sidebarOpen" class="absolute left-full top-1/2 -translate-y-1/2 ml-3 z-50 pointer-events-none opacity-0 group-hover/laporan:opacity-100 transition-opacity duration-200">
+                <div class="relative bg-slate-800 text-white text-xs font-medium px-3 py-1.5 rounded-md whitespace-nowrap">
+                    <div class="absolute -left-1 top-1/2 -translate-y-1/2 w-2 h-2 bg-slate-800 rotate-45"></div>
+                    Laporan
                 </div>
             </div>
         </div>
@@ -94,7 +113,7 @@
                 </div>
                 <div>
                     <p class="text-sm font-semibold text-slate-700 leading-none mb-0.5">{{ auth()->user()->name ?? 'User' }}</p>
-                    <p class="text-xs text-slate-400 capitalize">Admin</p>
+                    <p class="text-xs text-slate-400 capitalize">Super Admin</p>
                 </div>
             </div>
             <form method="POST" action="{{ route('logout') }}">
@@ -115,7 +134,7 @@
             </div>
             <div x-show="sidebarOpen" class="overflow-hidden" x-transition.opacity.duration.300ms>
                 <p class="text-sm font-semibold text-slate-700 whitespace-nowrap leading-none mb-0.5">{{ auth()->user()->name ?? 'User' }}</p>
-                <p class="text-xs text-slate-400 whitespace-nowrap capitalize">Admin</p>
+                <p class="text-xs text-slate-400 whitespace-nowrap capitalize">Super Admin</p>
             </div>
             <form x-show="sidebarOpen" method="POST" action="{{ route('logout') }}" class="ml-auto" x-transition.opacity.duration.300ms>
                 @csrf

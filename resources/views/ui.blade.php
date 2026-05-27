@@ -17,7 +17,7 @@
         <div class="h-20 flex items-center px-5 mb-4 mt-2 flex-shrink-0" :class="sidebarOpen ? '' : 'justify-center px-0'">
             <!-- Logo -->
             <div class="flex items-center" :class="sidebarOpen ? '' : 'justify-center'">
-                <div class="w-9 h-9 bg-[#1e5bce] rounded-lg flex items-center justify-center text-white flex-shrink-0">
+                <div class="w-9 h-9 bg-primary rounded-lg flex items-center justify-center text-white flex-shrink-0">
                     <i class="fa-solid fa-shield-halved text-lg"></i>
                 </div>
                 <div x-show="sidebarOpen" class="ml-3 overflow-hidden whitespace-nowrap" x-transition.opacity.duration.300ms>
@@ -30,7 +30,7 @@
         <!-- Floating Arrow Toggle Button (centered on border line) -->
         <button
             @click="sidebarOpen = !sidebarOpen"
-            class="absolute top-1/2 -right-3.5 -translate-y-1/2 z-30 w-7 h-7 bg-white border border-slate-200 rounded-full flex items-center justify-center text-slate-400 hover:text-[#1e5bce] hover:border-[#1e5bce] shadow-sm focus:outline-none transition-all duration-200"
+            class="absolute top-1/2 -right-3.5 -translate-y-1/2 z-30 w-7 h-7 bg-white border border-slate-200 rounded-full flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary shadow-sm focus:outline-none transition-all duration-200"
         >
             <i class="fa-solid text-xs transition-transform duration-300" :class="sidebarOpen ? 'fa-chevron-left' : 'fa-chevron-right'"></i>
         </button>
@@ -39,7 +39,7 @@
         <nav class="flex-1 px-3 space-y-1" style="overflow: visible;">
             <!-- Active Item -->
             <div class="relative group/dash">
-                <a href="#" class="flex items-center py-2.5 bg-[#e4e9f2] text-[#1e5bce] rounded-lg font-medium text-sm transition-all duration-300" :class="sidebarOpen ? 'px-3' : 'justify-center px-0'">
+                <a href="#" class="flex items-center py-2.5 bg-primary-light text-primary rounded-lg font-medium text-sm transition-all duration-300" :class="sidebarOpen ? 'px-3' : 'justify-center px-0'">
                     <i class="fa-solid fa-table-cells-large text-base w-5 text-center flex-shrink-0" :class="sidebarOpen ? 'mr-3' : 'mr-0'"></i>
                     <span x-show="sidebarOpen" class="whitespace-nowrap" x-transition.opacity.duration.300ms>Dashboard</span>
                 </a>
@@ -99,7 +99,7 @@
             <div class="flex items-center rounded-lg transition-all duration-300" :class="sidebarOpen ? 'gap-3 px-2 py-2' : 'justify-center py-2'">
                 <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Profile"
                      class="w-9 h-9 rounded-full border-2 border-slate-200 object-cover flex-shrink-0 transition-all duration-200"
-                     :class="!sidebarOpen ? 'cursor-pointer hover:ring-2 hover:ring-[#1e5bce] hover:ring-offset-1' : ''"
+                     :class="!sidebarOpen ? 'cursor-pointer hover:ring-2 hover:ring-primary hover:ring-offset-1' : ''"
                      @click="if (!sidebarOpen) profileOpen = !profileOpen">
                 <div x-show="sidebarOpen" class="overflow-hidden" x-transition.opacity.duration.300ms>
                     <p class="text-sm font-semibold text-slate-700 whitespace-nowrap leading-none mb-0.5">Administrator</p>

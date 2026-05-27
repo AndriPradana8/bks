@@ -85,7 +85,7 @@
                     ['name' => 'Rina Wati', 'branch' => 'Cabang Langkat'],
                 ] as $admin)
                 <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 transition-colors">
-                    <div class="w-8 h-8 rounded-full bg-[#1e5bce] flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
                         {{ strtoupper(substr($admin['name'], 0, 1)) }}
                     </div>
                     <div class="min-w-0">
@@ -97,7 +97,7 @@
                 @endforeach
             </div>
             <div class="px-4 pb-4">
-                <a href="#" class="block w-full text-center py-2 text-sm font-semibold text-[#1e5bce] hover:bg-[#e4e9f2] rounded-lg transition-colors">
+                <a href="#" class="block w-full text-center py-2 text-sm font-semibold text-primary hover:bg-primary-light rounded-lg transition-colors">
                     Lihat Semua Admin →
                 </a>
             </div>

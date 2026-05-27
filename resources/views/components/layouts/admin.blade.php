@@ -15,7 +15,11 @@
 <body x-data="{ sidebarOpen: true }" class="bg-[#f8f9fa] text-slate-800 antialiased h-screen flex overflow-hidden">
 
     {{-- Sidebar --}}
-    <x-admin.sidebar :role="$role ?? 'admin'" />
+    @if(($role ?? 'admin') === 'superadmin')
+        <x-superadmin.sidebar />
+    @else
+        <x-admin.sidebar />
+    @endif
 
     {{-- Main Content Wrapper --}}
     <div class="flex-1 flex flex-col min-w-0 bg-[#f8f9fa]">

@@ -23,12 +23,24 @@ Route::middleware(['auth', 'role:superadmin'])->group(function () {
     Route::get('/superadmin/dashboard', function () {
         return view('superadmin.dashboard');
     })->name('superadmin.dashboard');
+
+    Route::get('/superadmin/data-nasabah', [App\Http\Controllers\NasabahController::class, 'index'])->name('superadmin.nasabah');
+    Route::post('/superadmin/data-nasabah', [App\Http\Controllers\NasabahController::class, 'store'])->name('superadmin.nasabah.store');
+    Route::put('/superadmin/data-nasabah/{nasabah}', [App\Http\Controllers\NasabahController::class, 'update'])->name('superadmin.nasabah.update');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
+
+    Route::get('/admin/data-nasabah', [App\Http\Controllers\NasabahController::class, 'index'])->name('admin.nasabah');
+    Route::post('/admin/data-nasabah', [App\Http\Controllers\NasabahController::class, 'store'])->name('admin.nasabah.store');
+    Route::put('/admin/data-nasabah/{nasabah}', [App\Http\Controllers\NasabahController::class, 'update'])->name('admin.nasabah.update');
+
+    Route::get('/admin/tabungan', function () {
+        return view('admin.tabungan');
+    })->name('admin.tabungan');
 });
 
 Route::middleware(['auth', 'role:nasabah'])->group(function () {

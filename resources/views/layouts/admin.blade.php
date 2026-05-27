@@ -24,7 +24,7 @@
         <header class="h-16 bg-white border-b border-slate-200 flex items-center px-6 gap-4 flex-shrink-0">
             {{-- Mobile hamburger --}}
             <button @click="sidebarOpen = !sidebarOpen"
-                    class="md:hidden text-slate-500 hover:text-[#1e5bce] focus:outline-none transition-colors">
+                    class="md:hidden text-slate-500 hover:text-primary focus:outline-none transition-colors">
                 <i class="fa-solid fa-bars text-xl"></i>
             </button>
 
@@ -40,14 +40,14 @@
             {{-- Right side: Notification + Profile --}}
             <div class="flex items-center gap-3">
                 {{-- Notification Bell --}}
-                <button class="relative w-9 h-9 flex items-center justify-center text-slate-500 hover:text-[#1e5bce] hover:bg-slate-100 rounded-lg transition-colors">
+                <button class="relative w-9 h-9 flex items-center justify-center text-slate-500 hover:text-primary hover:bg-slate-100 rounded-lg transition-colors">
                     <i class="fa-solid fa-bell text-base"></i>
                     <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
                 </button>
 
                 {{-- Profile Pill --}}
                 <div class="flex items-center gap-2 pl-3 border-l border-slate-200">
-                    <div class="w-8 h-8 rounded-full bg-[#1e5bce] flex items-center justify-center text-white font-bold text-xs">
+                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xs">
                         {{ strtoupper(substr(auth()->user()->name ?? 'A', 0, 1)) }}
                     </div>
                     <div class="hidden sm:block">
